@@ -35,6 +35,14 @@ int main(int arg_count, char* arg_list[])
   char* morse_converter = new char[256*16]();
 #define MORSE_PTR(ch) (morse_converter + int(ch) * 16)
 #define SET_MORSE(ch, str) strcpy(MORSE_PTR(ch), str);
+  SET_MORSE(' ', " ");
+  SET_MORSE('\n', "\n");
+  SET_MORSE('\t', "\t");
+  SET_MORSE('\v', "\v");
+  SET_MORSE('\b', "\b");
+  SET_MORSE('\a', "\a");
+  SET_MORSE('\f', "\f");
+  SET_MORSE('\r', "\r");
   SET_MORSE('A', ".-");
   SET_MORSE('B', "-...");
   SET_MORSE('C', "-.-.");
@@ -103,7 +111,7 @@ int main(int arg_count, char* arg_list[])
   SET_MORSE('\'', ".----.");
   SET_MORSE('!', "-.-.-----.");
   SET_MORSE('/', "-..-.");
-  SET_MORSE('(', "-..-.");
+  SET_MORSE('(', "-.--.");
   SET_MORSE(')', "-.--.-");
   SET_MORSE('&', ".-...");
   SET_MORSE(':', "---...");
