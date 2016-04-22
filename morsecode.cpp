@@ -128,11 +128,11 @@ int main(int arg_count, char* arg_list[])
   const char* const stop = ".-.-.";
 
   char buffer[2];
-  fprintf(fout, "%s", start);
+  fprintf(fout, "%s ", start);
   while(!feof(fin))
   {
     fread(buffer, 1, sizeof(char), fin);
-    fprintf(fout, "%s", MORSE_PTR(buffer[0]));
+    fprintf(fout, "%s ", MORSE_PTR(buffer[0]));
   }
   fprintf(fout, "%s", stop);
 
