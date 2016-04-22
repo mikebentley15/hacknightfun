@@ -25,12 +25,12 @@ int main(int arg_count, char* arg_list[])
 
   const char* const infile = arg_list[1];
   FILE *fin = fopen(arg_list[1], "r");
-  FILE *fout = stdout;
+  FILE *fout = NULL;
 
   if (arg_count > 2)
-  {
     fout = fopen(arg_list[2], "w");
-  }
+  else
+    fout = fopen("outfile.txt", "w");
 
   char* morse_converter = new char[256*16]();
 #define MORSE_PTR(ch) (morse_converter + int(ch) * 16)
@@ -135,6 +135,9 @@ int main(int arg_count, char* arg_list[])
     fprintf(fout, "%s", MORSE_PTR(buffer[0]));
   }
   fprintf(fout, "%s", stop);
+
+  fclose(fin);
+  fclose(fout);
 
   return 0;
 }
