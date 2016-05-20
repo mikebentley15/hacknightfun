@@ -11,7 +11,8 @@ def main(arguments):
     args = parser.parse_args(arguments)
 
     current = (0, 0)
-    visits = set(current)
+    visits = set()
+    visits.add(current)
     movements = {
         '^':  lambda x: (x[0], x[1]+1),
         'v':  lambda x: (x[0], x[1]-1),
